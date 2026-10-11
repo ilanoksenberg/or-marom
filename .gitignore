@@ -1,0 +1,7 @@
+node_modules
+.next
+.impeccable/*.local.json
+.DS_Store
+.claude/
+out
+next-env.d.ts
