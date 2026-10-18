@@ -5,3 +5,4 @@ node_modules
 .claude/
 out
 next-env.d.ts
+*.tsbuildinfo

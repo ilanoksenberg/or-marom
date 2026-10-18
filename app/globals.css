@@ -6,7 +6,7 @@
   --color-cream: #fbf1e9;
   --color-muted: #c2b0bb;
   --color-line: rgb(251 241 233 / 0.14);
-  --color-sun: #eab23c;
+  --color-sun: #e2b04e;
   --color-plum: #2b1725;
   --font-display: var(--font-frank), "Times New Roman", serif;
   --font-body: var(--font-assistant), system-ui, sans-serif;
@@ -31,9 +31,9 @@ body {
 
 h1, h2, h3, blockquote {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   text-wrap: balance;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 p { text-wrap: pretty; }
@@ -86,7 +86,7 @@ p { text-wrap: pretty; }
 .btn-ghost { box-shadow: inset 0 0 0 1.5px rgb(251 241 233 / 0.7); }
 
 @media (hover: hover) and (pointer: fine) {
-  .btn-sun:hover { background: #f3c25a; }
+  .btn-sun:hover { background: #ecc16c; }
   .btn-ghost:hover { background: rgb(251 241 233 / 0.12); }
   .link-quiet:hover { text-decoration-color: currentColor; }
 }

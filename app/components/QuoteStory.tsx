@@ -49,12 +49,12 @@ export function QuoteStory({ intro, quotes }: { intro: string; quotes: string[] 
           </div>
           <div className="mt-8 flex items-center gap-3" aria-hidden>
             {quotes.map((_, i) => (
-              <span
-                key={i}
-                className={`h-[3px] rounded-full transition-all duration-500 ${
-                  i === idx ? "w-14 bg-sun" : "w-6 bg-cream/25"
-                }`}
-              />
+              <span key={i} className="relative h-[3px] w-12 overflow-hidden rounded-full bg-cream/25">
+                <span
+                  className="absolute inset-0 origin-right bg-sun transition-transform duration-500"
+                  style={{ transform: `scaleX(${i === idx ? 1 : 0})` }}
+                />
+              </span>
             ))}
           </div>
           <p className="mt-4 text-base text-muted">הודעה שאור קיבלה אחרי טיפול</p>

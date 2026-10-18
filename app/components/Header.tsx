@@ -27,10 +27,10 @@ export function Header({ bookingUrl }: { bookingUrl: string }) {
           href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-sun !min-h-11 !px-5 !text-base"
+          className="link-quiet inline-flex items-center gap-2 py-3 text-base"
         >
           לקביעת תור
-          <ArrowLeft size={18} weight="bold" aria-hidden />
+          <ArrowLeft size={16} weight="bold" aria-hidden />
         </a>
       </div>
     </motion.header>

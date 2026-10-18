@@ -16,10 +16,22 @@ const assistant = Assistant({
   display: "swap",
 });
 
+const SITE = "https://ilanoksenberg.github.io/or-marom";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
   title: "אור מרום | עיסוי רפואי Deep Tissue בהוד השרון",
   description:
     "אור מרום, מעסה רפואית בטכניקת Deep Tissue. מקבלת בהוד השרון, תל אביב בקרוב. קביעת תור ביומן אונליין.",
+  openGraph: {
+    title: "אור מרום | עיסוי רפואי Deep Tissue",
+    description: "הגוף שלכם יודה לכם. עיסוי רפואי בטכניקת Deep Tissue בהוד השרון.",
+    url: SITE,
+    siteName: "אור מרום",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "/images/poster-1.jpg", width: 720, height: 600, alt: "אור מרום בעבודה" }],
+  },
 };
 
 export const viewport: Viewport = {

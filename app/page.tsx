@@ -6,7 +6,6 @@ import { ParallaxFrame } from "./components/Parallax";
 import { QuoteStory } from "./components/QuoteStory";
 import { Reveal } from "./components/Reveal";
 import { ScrollWords } from "./components/ScrollWords";
-import { StickyCTA } from "./components/StickyCTA";
 import {
   ADDRESSES,
   BOOKING_URL,
@@ -23,9 +22,14 @@ import {
 import { Logo } from "./components/Logo";
 import { asset } from "./asset";
 
-function BookButton({ label = "לקביעת תור" }: { label?: string }) {
+function BookButton({ label = "לקביעת תור", primary = false }: { label?: string; primary?: boolean }) {
   return (
-    <a href={BOOKING_URL} className="btn btn-sun" target="_blank" rel="noopener noreferrer">
+    <a
+      href={BOOKING_URL}
+      className={primary ? "btn btn-sun" : "btn btn-ghost"}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {label}
       <ArrowLeft size={20} weight="bold" aria-hidden />
     </a>
@@ -57,28 +61,31 @@ export default function Home() {
             <div className="absolute inset-0 hidden bg-gradient-to-l from-bg/80 via-transparent to-transparent md:block" />
           </div>
           <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 pt-40 md:px-10 md:pb-24">
-            <h1 className="rise rise-1 max-w-[11ch] text-[clamp(3.4rem,12.5vw,7.5rem)] font-light leading-[1]">
+            <h1 className="rise rise-1 max-w-[11ch] text-[clamp(3.4rem,12.5vw,7.5rem)] font-normal leading-[1]">
               הגוף שלכם יודה לכם
             </h1>
             <p className="rise rise-2 mt-6 max-w-[30ch] text-lg text-cream/85 md:mt-8 md:text-2xl">
               אור מרום, מעסה רפואית בטכניקת Deep Tissue. מקבלת בהוד השרון, תל אביב בקרוב.
             </p>
-            <div className="rise rise-3 mt-9 flex flex-wrap gap-3">
+            <div className="rise rise-3 mt-9">
               <BookButton />
-              <a href={PHONE_TEL} className="btn btn-ghost">
-                <Phone size={20} aria-hidden />
-                {PHONE_DISPLAY}
-              </a>
             </div>
           </div>
         </section>
 
         {/* The treatment, one sentence that lights up as you scroll */}
-        <section className="mx-auto max-w-6xl px-5 py-32 md:px-10 md:py-56">
+        <section className="relative isolate">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -start-[30%] top-1/2 -z-10 aspect-square w-[110%] -translate-y-1/2 rounded-full opacity-[0.13] md:w-[60%]"
+            style={{ background: "radial-gradient(closest-side, var(--color-sun), transparent)" }}
+          />
+          <div className="mx-auto max-w-6xl px-5 py-32 md:px-10 md:py-56">
           <ScrollWords
             text={STATEMENT}
-            className="font-display text-[2.1rem] font-light leading-[1.3] md:text-[4.4rem] md:leading-[1.2]"
+            className="font-display text-[2.1rem] font-normal leading-[1.3] md:text-[4.4rem] md:leading-[1.2]"
           />
+          </div>
         </section>
 
         {/* Who she is: her own words and her own photographs */}
@@ -93,10 +100,14 @@ export default function Home() {
               <p className="mt-8 max-w-[38ch] text-lg text-muted md:text-xl">{CREDENTIAL}</p>
             </Reveal>
             <Reveal delay={0.18}>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <BookButton />
-                <a href={INSTAGRAM_URL} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                  <InstagramLogo size={22} aria-hidden />
+              <div className="mt-8">
+                <a
+                  href={INSTAGRAM_URL}
+                  className="link-quiet inline-flex items-center gap-2 py-3 text-lg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InstagramLogo size={22} weight="bold" aria-hidden />
                   @or_marom1
                 </a>
               </div>
@@ -104,7 +115,7 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md md:max-w-none">
-            <ParallaxFrame className="aspect-[3/4] w-[78%] rounded-[28px] bg-surface md:w-[74%]">
+            <ParallaxFrame className="aspect-[3/4] w-[78%] rounded-[2rem] bg-surface md:w-[74%]">
               <Image
                 src={IMAGES.clinic}
                 alt="חדר הטיפולים של אור"
@@ -114,7 +125,7 @@ export default function Home() {
               />
             </ParallaxFrame>
             <div className="absolute -bottom-16 end-0 w-[52%] md:-bottom-24">
-              <ParallaxFrame className="aspect-[4/5] rounded-[28px] bg-surface shadow-[0_30px_70px_-30px_rgb(0_0_0_/_0.8)]">
+              <ParallaxFrame className="aspect-[4/5] rounded-[1.1rem] bg-surface shadow-[0_30px_70px_-30px_rgb(14_4_12_/_0.9)]">
                 <Image
                   src={IMAGES.portrait}
                   alt="אור מרום"
@@ -150,7 +161,14 @@ export default function Home() {
         <QuoteStory intro={TESTIMONIALS_INTRO} quotes={TESTIMONIALS} />
 
         {/* Way of thinking */}
-        <section className="mx-auto max-w-7xl px-5 py-32 md:px-10 md:py-52">
+        <section className="relative isolate overflow-hidden">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 end-0 -z-10 w-full opacity-[0.14] md:w-1/2 [mask-image:linear-gradient(to_left,#000,transparent)]"
+          >
+            <Image src={IMAGES.clinic} alt="" fill sizes="50vw" className="object-cover" />
+          </div>
+          <div className="mx-auto max-w-7xl px-5 py-32 md:px-10 md:py-52">
           <Reveal>
             <h2 className="text-xl text-muted md:text-2xl">דרך החשיבה שלי</h2>
           </Reveal>
@@ -164,6 +182,7 @@ export default function Home() {
                 </blockquote>
               </Reveal>
             ))}
+          </div>
           </div>
         </section>
 
@@ -200,9 +219,9 @@ export default function Home() {
               התורים נקבעים ביומן אונליין. בוחרים יום ושעה, וזהו.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <BookButton label="לקביעת תור ביומן" />
-              <a href={PHONE_TEL} className="btn btn-ghost">
-                <Phone size={20} aria-hidden />
+              <BookButton primary label="לקביעת תור ביומן" />
+              <a href={PHONE_TEL} className="link-quiet inline-flex items-center gap-2 px-2 py-3 text-lg">
+                <Phone size={20} weight="bold" aria-hidden />
                 {PHONE_DISPLAY}
               </a>
             </div>
@@ -219,13 +238,12 @@ export default function Home() {
             rel="noopener noreferrer"
             className="link-quiet inline-flex items-center gap-2"
           >
-            <InstagramLogo size={20} aria-hidden />
+            <InstagramLogo size={20} weight="bold" aria-hidden />
             @or_marom1
           </a>
         </div>
       </footer>
 
-      <StickyCTA href={BOOKING_URL} />
     </>
   );
 }
