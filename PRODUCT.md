@@ -36,7 +36,7 @@ Clinic location: Hod HaSharon (open now). Tel Aviv: coming soon. Appointments ar
 ## Brand Commitments
 
 - Name: אור מרום | Or Marom.
-- Bio line: "מעסה רפואית בטכניקת Deep Tissue", "הוד השרון | תל אביב (בקרוב)", "תורים פנויים".
+- Bio line: "מעסה רפואית בטכניקת Deep Tissue", "הוד השרון | תל אביב (בקרוב)" (outdated: the owner confirmed she now receives in both Hod HaSharon and Tel Aviv), "תורים פנויים".
 - Emoji she uses as identity: 🌞 💆🏽‍♀️ 🦋 🌻 ✨ (sun, butterfly, sunflower). Warm, sunny signals. Use as inspiration for the palette and motifs, not as emoji in the page (drawn icons instead).
 - Atmosphere must match a treatment room: calm, warm, safe.
 

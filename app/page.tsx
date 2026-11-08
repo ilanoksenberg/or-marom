@@ -13,7 +13,10 @@ import {
   IMAGES,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
+  PACKAGES,
   PHONE_TEL,
+  PRICE_NOTES,
+  SINGLE_SESSIONS,
   STATEMENT,
   TESTIMONIALS,
   TESTIMONIALS_INTRO,
@@ -26,7 +29,7 @@ function BookButton({ label = "לקביעת תור", primary = false }: { label?
   return (
     <a
       href={BOOKING_URL}
-      className={primary ? "btn btn-sun" : "btn btn-ghost"}
+      className={primary ? "btn btn-primary" : "btn btn-ghost"}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -42,7 +45,7 @@ export default function Home() {
       <div className="ambient" style={{ backgroundImage: `url(${asset("/images/ambient.jpg")})` }} aria-hidden />
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-50 focus:rounded-full focus:bg-sun focus:px-5 focus:py-2 focus:text-plum"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-50 focus:rounded-full focus:bg-sage-deep focus:px-5 focus:py-2 focus:text-cream"
       >
         דלג לתוכן
       </a>
@@ -57,15 +60,15 @@ export default function Home() {
               poster={asset("/images/poster-1.jpg")}
               className="settle h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-bg/20 md:via-bg/55 md:to-bg/25" />
-            <div className="absolute inset-0 hidden bg-gradient-to-l from-bg/80 via-transparent to-transparent md:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-transparent md:via-bg/55 md:to-bg/5" />
+            <div className="absolute inset-0 hidden bg-gradient-to-l from-bg via-bg/75 to-transparent md:block" />
           </div>
           <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 pt-40 md:px-10 md:pb-24">
             <h1 className="rise rise-1 max-w-[11ch] text-[clamp(3.4rem,12.5vw,7.5rem)] font-normal leading-[1]">
               הגוף שלכם יודה לכם
             </h1>
-            <p className="rise rise-2 mt-6 max-w-[30ch] text-lg text-cream/85 md:mt-8 md:text-2xl">
-              אור מרום, מעסה רפואית בטכניקת Deep Tissue. מקבלת בהוד השרון, תל אביב בקרוב.
+            <p className="rise rise-2 mt-6 max-w-[30ch] text-lg text-ink/80 md:mt-8 md:text-2xl">
+              אור מרום, מעסה רפואית בטכניקת Deep Tissue. מקבלת בהוד השרון ובתל אביב.
             </p>
             <div className="rise rise-3 mt-9">
               <BookButton />
@@ -77,8 +80,8 @@ export default function Home() {
         <section className="relative isolate">
           <div
             aria-hidden
-            className="pointer-events-none absolute -start-[30%] top-1/2 -z-10 aspect-square w-[110%] -translate-y-1/2 rounded-full opacity-[0.13] md:w-[60%]"
-            style={{ background: "radial-gradient(closest-side, var(--color-sun), transparent)" }}
+            className="pointer-events-none absolute -start-[30%] top-1/2 -z-10 aspect-square w-[110%] -translate-y-1/2 rounded-full opacity-[0.22] md:w-[60%]"
+            style={{ background: "radial-gradient(closest-side, var(--color-tan), transparent)" }}
           />
           <div className="mx-auto max-w-6xl px-5 py-32 md:px-10 md:py-56">
           <ScrollWords
@@ -125,7 +128,7 @@ export default function Home() {
               />
             </ParallaxFrame>
             <div className="absolute -bottom-16 end-0 w-[52%] md:-bottom-24">
-              <ParallaxFrame className="aspect-[4/5] rounded-[1.1rem] bg-surface shadow-[0_30px_70px_-30px_rgb(14_4_12_/_0.9)]">
+              <ParallaxFrame className="aspect-[4/5] rounded-[1.1rem] bg-surface shadow-[0_30px_70px_-30px_rgb(47_58_42_/_0.55)]">
                 <Image
                   src={IMAGES.portrait}
                   alt="אור מרום"
@@ -138,6 +141,59 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Prices */}
+        <section id="prices" className="mx-auto max-w-7xl px-5 pb-32 md:px-10 md:pb-52">
+          <Reveal>
+            <h2 className="text-4xl md:text-6xl">מחירים</h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-16 md:mt-16 md:grid-cols-[0.75fr_1.25fr] md:gap-24">
+            <Reveal>
+              <h3 className="text-2xl md:text-3xl">טיפול בודד</h3>
+              <dl className="mt-6 border-t border-line">
+                {SINGLE_SESSIONS.map((t) => (
+                  <div key={t.duration} className="flex items-baseline justify-between gap-6 border-b border-line py-5">
+                    <dt className="text-lg md:text-xl">{t.duration}</dt>
+                    <dd className="font-display text-3xl tabular-nums md:text-4xl">{t.price} ₪</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
+            <div>
+              <Reveal>
+                <h3 className="text-2xl md:text-3xl">חבילות</h3>
+                <p className="mt-2 text-lg text-muted">טיפולים של 50 דקות.</p>
+              </Reveal>
+              <div className="mt-6 border-t border-line">
+                {PACKAGES.map((p, i) => (
+                  <Reveal key={p.name} delay={i * 0.08}>
+                    <div className="grid gap-4 border-b border-line py-8 md:grid-cols-[1.3fr_0.7fr] md:gap-10">
+                      <div>
+                        <h4 className="font-display text-2xl md:text-3xl">{p.name}</h4>
+                        <p className="mt-3 text-lg">{p.about}</p>
+                        <p className="mt-1 text-base text-muted">{p.validity}</p>
+                      </div>
+                      <div className="md:text-end">
+                        <p className="text-base text-muted">{p.count}</p>
+                        <p className="font-display text-4xl tabular-nums md:text-5xl">{p.total} ₪</p>
+                        <p className="mt-1 text-base text-muted tabular-nums">{p.perSession} ₪ לטיפול</p>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal>
+                <ul className="mt-8 space-y-1 text-base text-muted">
+                  {PRICE_NOTES.map((n) => (
+                    <li key={n}>{n}</li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* Full-bleed moving image with her line over it */}
         <section className="relative flex min-h-[80svh] items-center overflow-hidden">
           <div className="absolute inset-0">
@@ -146,7 +202,7 @@ export default function Home() {
               poster={asset("/images/poster-2.jpg")}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-bg/45" />
+            <div className="absolute inset-0 bg-bg/48" />
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bg to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent" />
           </div>
@@ -202,8 +258,8 @@ export default function Home() {
                 </dd>
               </div>
               <div className="grid gap-3 border-b border-line py-8 md:grid-cols-[1fr_1.4fr] md:items-baseline md:py-10">
-                <dt className="font-display text-4xl font-light text-muted md:text-6xl">תל אביב</dt>
-                <dd className="text-lg text-muted md:text-xl">בקרוב.</dd>
+                <dt className="font-display text-4xl font-light md:text-6xl">תל אביב</dt>
+                <dd className="text-lg text-muted md:text-xl">מקבלת גם בתל אביב.</dd>
               </div>
             </dl>
           </Reveal>
@@ -215,7 +271,7 @@ export default function Home() {
             <h2 className="max-w-[14ch] text-[2.9rem] leading-[1.05] md:text-[6.25rem]">
               נתאם ביחד את הטיפול הראשון
             </h2>
-            <p className="mt-8 max-w-[34ch] text-xl text-cream/80 md:text-2xl">
+            <p className="mt-8 max-w-[34ch] text-xl text-ink/75 md:text-2xl">
               התורים נקבעים ביומן אונליין. בוחרים יום ושעה, וזהו.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -231,7 +287,7 @@ export default function Home() {
 
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-5 py-10 text-muted md:px-10">
-          <Logo />
+          <Logo className="h-24" tagline />
           <a
             href={INSTAGRAM_URL}
             target="_blank"

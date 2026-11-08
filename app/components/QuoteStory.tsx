@@ -49,9 +49,9 @@ export function QuoteStory({ intro, quotes }: { intro: string; quotes: string[] 
           </div>
           <div className="mt-8 flex items-center gap-3" aria-hidden>
             {quotes.map((_, i) => (
-              <span key={i} className="relative h-[3px] w-12 overflow-hidden rounded-full bg-cream/25">
+              <span key={i} className="relative h-[3px] w-12 overflow-hidden rounded-full bg-ink/15">
                 <span
-                  className="absolute inset-0 origin-right bg-sun transition-transform duration-500"
+                  className="absolute inset-0 origin-right bg-sage-deep transition-transform duration-500"
                   style={{ transform: `scaleX(${i === idx ? 1 : 0})` }}
                 />
               </span>

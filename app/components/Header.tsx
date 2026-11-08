@@ -12,8 +12,8 @@ export function Header({ bookingUrl }: { bookingUrl: string }) {
 
   return (
     <motion.header
-      className={`fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter,border-color] duration-500 ${
-        solid ? "border-b border-line bg-bg/75 backdrop-blur-md" : "border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-40 border-b bg-bg/85 backdrop-blur-md transition-[border-color] duration-500 ${
+        solid ? "border-line" : "border-transparent"
       }`}
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
