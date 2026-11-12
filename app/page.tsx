@@ -1,15 +1,15 @@
 import Image from "next/image";
-import { ArrowLeft, InstagramLogo, Phone } from "@phosphor-icons/react/ssr";
+import { ArrowLeft, InstagramLogo, Phone, WhatsappLogo } from "@phosphor-icons/react/ssr";
 import { BackdropVideo } from "./components/BackdropVideo";
 import { Header } from "./components/Header";
 import { ParallaxFrame } from "./components/Parallax";
-import { QuoteStory } from "./components/QuoteStory";
 import { Reveal } from "./components/Reveal";
 import { ScrollWords } from "./components/ScrollWords";
 import {
   ADDRESSES,
   BOOKING_URL,
   CREDENTIAL,
+  FIRST_SESSION,
   IMAGES,
   INSTAGRAM_URL,
   PHONE_DISPLAY,
@@ -18,9 +18,11 @@ import {
   PRICE_NOTES,
   SINGLE_SESSIONS,
   STATEMENT,
-  TESTIMONIALS,
+  TEL_AVIV_ADDRESSES,
+  REVIEW_SHOTS,
   TESTIMONIALS_INTRO,
   THINKING,
+  wazeUrl,
 } from "./content";
 import { Logo } from "./components/Logo";
 import { asset } from "./asset";
@@ -34,8 +36,23 @@ function BookButton({ label = "לקביעת תור", primary = false }: { label?
       rel="noopener noreferrer"
     >
       {label}
-      <ArrowLeft size={20} weight="bold" aria-hidden />
+      {primary ? (
+        <WhatsappLogo size={22} weight="bold" aria-hidden />
+      ) : (
+        <ArrowLeft size={20} weight="bold" aria-hidden />
+      )}
     </a>
+  );
+}
+
+function AddressLine({ address }: { address: string }) {
+  return (
+    <p className="flex flex-wrap items-baseline gap-x-5">
+      <span>{address}</span>
+      <a href={wazeUrl(address)} target="_blank" rel="noopener noreferrer" className="link-quiet py-1 text-base">
+        ניווט בוויז
+      </a>
+    </p>
   );
 }
 
@@ -118,25 +135,47 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md md:max-w-none">
-            <ParallaxFrame className="aspect-[3/4] w-[78%] rounded-[2rem] bg-surface md:w-[74%]">
+            <ParallaxFrame className="aspect-[2/3] w-[78%] rounded-[2rem] bg-surface md:w-[74%]">
               <Image
-                src={IMAGES.clinic}
-                alt="חדר הטיפולים של אור"
+                src={IMAGES.hands}
+                alt="אור מרום בחדר הטיפולים"
                 fill
                 sizes="(min-width: 768px) 30vw, 70vw"
-                className="object-cover"
+                className="object-cover object-[50%_30%]"
               />
             </ParallaxFrame>
             <div className="absolute -bottom-16 end-0 w-[52%] md:-bottom-24">
-              <ParallaxFrame className="aspect-[4/5] rounded-[1.1rem] bg-surface shadow-[0_30px_70px_-30px_rgb(47_58_42_/_0.55)]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.1rem] bg-surface shadow-[0_30px_70px_-30px_rgb(47_58_42_/_0.55)]">
                 <Image
-                  src={IMAGES.portrait}
-                  alt="אור מרום"
+                  src={IMAGES.smile}
+                  alt="אור מרום מחייכת"
                   fill
                   sizes="(min-width: 768px) 20vw, 40vw"
-                  className="object-cover object-[50%_30%]"
+                  className="object-cover"
                 />
-              </ParallaxFrame>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What to expect */}
+        <section id="first-session" className="mx-auto max-w-7xl px-5 pb-32 md:px-10 md:pb-52">
+          <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-24">
+            <Reveal>
+              <h2 className="text-4xl leading-[1.1] md:text-6xl">{FIRST_SESSION.title}</h2>
+              <p className="mt-6 max-w-[34ch] text-lg text-muted md:text-xl">{FIRST_SESSION.intro}</p>
+            </Reveal>
+            <div>
+              <dl className="border-t border-line">
+                {FIRST_SESSION.rows.map((r, i) => (
+                  <Reveal key={r.label} delay={i * 0.05}>
+                    <div className="grid gap-1 border-b border-line py-6 md:grid-cols-[0.45fr_1fr] md:gap-8 md:py-7">
+                      <dt className="font-display text-2xl md:text-3xl">{r.label}</dt>
+                      <dd className="whitespace-pre-line text-lg text-muted md:text-xl">{r.text}</dd>
+                    </div>
+                  </Reveal>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
@@ -214,7 +253,42 @@ export default function Home() {
         </section>
 
         {/* Patients, one message at a time */}
-        <QuoteStory intro={TESTIMONIALS_INTRO} quotes={TESTIMONIALS} />
+        <section id="reviews" className="relative isolate overflow-hidden bg-surface py-28 md:py-44">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -end-1/4 -top-1/4 -z-10 aspect-square w-[85%] rounded-full opacity-[0.22] md:w-[45%]"
+            style={{ background: "radial-gradient(closest-side, var(--color-tan), transparent)" }}
+          />
+          <div className="mx-auto max-w-7xl px-5 md:px-10">
+            <Reveal>
+              <h2 className="max-w-[18ch] text-4xl leading-[1.12] md:text-6xl">{TESTIMONIALS_INTRO}</h2>
+              <p className="mt-5 text-lg text-muted md:text-xl">הודעות שקיבלתי מכם.</p>
+            </Reveal>
+            <ul className="mt-14 grid gap-7 md:mt-24 md:grid-cols-3 md:items-start md:gap-8">
+              {REVIEW_SHOTS.map((r, i) => (
+                <li
+                  key={r.src}
+                  className={`w-[90%] max-w-[22rem] md:w-auto md:max-w-none ${
+                    i % 2 ? "ms-auto" : "me-auto"
+                  } md:m-0 ${["", "-mt-3", "-mt-5"][i] ?? ""} ${["md:mt-0", "md:mt-24", "md:mt-10"][i] ?? ""}`}
+                >
+                  <Reveal delay={i * 0.12}>
+                    <figure className="shot" style={{ "--tilt": ["-1.6deg", "1.4deg", "-1.1deg"][i] ?? "0deg" } as React.CSSProperties}>
+                      <Image
+                        src={r.src}
+                        alt={r.alt}
+                        width={r.w}
+                        height={r.h}
+                        sizes="(min-width: 768px) 30vw, 90vw"
+                        className="h-auto w-full rounded-[1.75rem] shadow-[0_30px_60px_-28px_rgb(47_58_42_/_0.5)] ring-1 ring-ink/5"
+                      />
+                    </figure>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
         {/* Way of thinking */}
         <section className="relative isolate overflow-hidden">
@@ -253,13 +327,17 @@ export default function Home() {
                 <dt className="font-display text-4xl font-light md:text-6xl">הוד השרון</dt>
                 <dd className="space-y-1 text-lg text-muted md:text-xl">
                   {ADDRESSES.map((a) => (
-                    <p key={a}>{a}</p>
+                    <AddressLine key={a} address={a} />
                   ))}
                 </dd>
               </div>
               <div className="grid gap-3 border-b border-line py-8 md:grid-cols-[1fr_1.4fr] md:items-baseline md:py-10">
                 <dt className="font-display text-4xl font-light md:text-6xl">תל אביב</dt>
-                <dd className="text-lg text-muted md:text-xl">מקבלת גם בתל אביב.</dd>
+                <dd className="space-y-1 text-lg text-muted md:text-xl">
+                  {TEL_AVIV_ADDRESSES.map((a) => (
+                    <AddressLine key={a} address={a} />
+                  ))}
+                </dd>
               </div>
             </dl>
           </Reveal>
@@ -272,10 +350,10 @@ export default function Home() {
               נתאם ביחד את הטיפול הראשון
             </h2>
             <p className="mt-8 max-w-[34ch] text-xl text-ink/75 md:text-2xl">
-              התורים נקבעים ביומן אונליין. בוחרים יום ושעה, וזהו.
+              שולחים לי הודעה בוואטסאפ ונתאם ביחד יום ושעה.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <BookButton primary label="לקביעת תור ביומן" />
+              <BookButton primary label="לקביעת תור בוואטסאפ" />
               <a href={PHONE_TEL} className="link-quiet inline-flex items-center gap-2 px-2 py-3 text-lg">
                 <Phone size={20} weight="bold" aria-hidden />
                 {PHONE_DISPLAY}

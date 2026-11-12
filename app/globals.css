@@ -132,3 +132,12 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Review screenshots sit at a slight angle everywhere and straighten when hovered. */
+.shot {
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 500ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .shot:hover { transform: rotate(0deg) translateY(-6px); }
+}

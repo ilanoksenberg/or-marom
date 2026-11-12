@@ -4,24 +4,31 @@ import { asset } from "./asset";
 
 export const INSTAGRAM_URL = "https://www.instagram.com/or_marom1/";
 
-// TODO: replace with the online calendar link once provided.
-// Until then the booking buttons open Or's Instagram profile.
-export const BOOKING_URL = INSTAGRAM_URL;
+// Booking goes through WhatsApp with a ready-made first message. Assumes the phone number below is also her
+// WhatsApp number (to be confirmed). If an online calendar is added later, point BOOKING_URL at it instead.
+export const WHATSAPP_NUMBER = "972505428564";
+// Or's online calendar (Cleana+). It goes in the third line of the WhatsApp message.
+export const CALENDAR_URL = "https://cleanaplus.cleanagroup.app/book/ormarom1massage";
+export const WHATSAPP_MESSAGE = `שלום אור,\nאשמח לקבוע טיפול ראשון.\n${CALENDAR_URL}`;
+export const BOOKING_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+// Opens turn-by-turn navigation in Waze for an address.
+export const wazeUrl = (address: string) => `https://waze.com/ul?q=${encodeURIComponent(address)}&navigate=yes`;
 
 // Business details Or published herself in the caption of her Instagram post DZKxnAtueN9.
 // To be confirmed by Or before launch.
 export const PHONE_DISPLAY = "050-5428564";
 export const PHONE_TEL = "tel:+972505428564";
-export const ADDRESSES = ["השחר 13, הוד השרון", "הרימון 86, נווה ימין"];
+export const ADDRESSES = ["השחר 13, הוד השרון"];
+export const TEL_AVIV_ADDRESSES = ["בן יהודה 32, תל אביב יפו"];
 
 export const CREDENTIAL = "מוסמכת עיסוי רפואי (רקמות עמוק) ועיסוי שוודי הוליסטי, בוגרת מכללת מירב לרפואה משלימה.";
 
-// Photos taken from Or's own Instagram (@or_marom1). Originals in higher quality are better.
+// Photos of Or, supplied by the site owner. The clinic photo comes from Or's Instagram.
 export const IMAGES = {
-  hero: asset("/images/hero-hands.jpg"),
   clinic: asset("/images/clinic.jpg"),
-  room: asset("/images/or-room.jpg"),
-  portrait: asset("/images/or-portrait.jpg"),
+  hands: asset("/images/or-hands.jpg"),
+  smile: asset("/images/or-smile.jpg"),
 };
 
 // Optional looping background video for the hero, for example "/videos/hero.mp4".
@@ -34,13 +41,28 @@ export const STATEMENT =
 
 export const THINKING = ["אנרגיות חיוביות בלבד.", "אהבה היא לא מילים אלא מעשים."];
 
-// Messages sent to Or after treatments, as she shared them in her Instagram highlight "לקוחות מרוצים".
-// Names were hidden in the original, so none are shown. To be confirmed by Or.
+// Messages sent to Or after treatments, shown as the screenshots she received (cropped to the message only,
+// no names or numbers visible). The alt text carries the full message for screen readers.
 export const TESTIMONIALS_INTRO = "המטופלים שלי הכי טובים שיש, ואני זוכה בפיס עם כל אחד ואחד מהם.";
-export const TESTIMONIALS = [
-  "הטיפול אצלך הוא הרבה מעבר לעיסוי. את יודעת להקשיב, להרגיש, ולתת תחושת ביטחון אמיתית. יצאתי ממך לא רק יותר משוחרר פיזית, אלא גם הרבה יותר רגוע.",
-  "אין מילים להסביר ולתאר את החוויה, מעבר לזה שאחרי פעם אחת שבאתי אלייך כל המשפחה שלי באה אלייך. את מדויקת ונעימה וקשובה, שזה הכי חשוב. אין כמוך, באמת הכי מומלצת בעולם.",
-  "זכיתי להכיר אותך! תודה על עיסוי מושלם! יש לך ידיים זהב ומגע קסם! נהניתי מכל שנייה ושנייה.",
+export const REVIEW_SHOTS = [
+  {
+    src: asset("/images/review-1.jpg"),
+    w: 616,
+    h: 489,
+    alt: "הודעה שאור קיבלה: אור יקרה! מהחוויה שלי, הטיפול אצלך הוא הרבה מעבר לעיסוי. את יודעת להקשיב, להרגיש, ולתת תחושת ביטחון אמיתית. יצאתי ממך לא רק יותר משוחרר פיזית, אלא גם הרבה יותר רגוע. יש לך מגע מדויק ורגיש, אבל מה שבאמת מיוחד זה האנרגיה שלך, את גורמת למי שמגיע אלייך להרגיש שמי שמטפלת בה באמת מרגישה אותה.",
+  },
+  {
+    src: asset("/images/review-2.jpg"),
+    w: 616,
+    h: 353,
+    alt: "הודעה שאור קיבלה: אין מילים להסביר ולתאר את החוויה, מעבר לזה שאחרי פעם אחת שבאתי אלייך כל המשפחה שלי באה אלייך. את מדויקת ונעימה וקשובה שזה הכי חשוב. אין כמוך, באמת הכי מומלצת בעולם.",
+  },
+  {
+    src: asset("/images/review-3.jpg"),
+    w: 616,
+    h: 325,
+    alt: "הודעה שאור קיבלה: זכיתי להכיר אותך! תודה על עיסוי מושלם! יש לך ידיים זהב ומגע קסם! בכללי את עצמך נסיכה מדהימה ונהנתי מכל שנייה ושנייה. תודה לך.",
+  },
 ];
 
 // Price list, transcribed from the price sheet Or's team provided. Prices in shekels.
@@ -80,3 +102,25 @@ export const PRICE_NOTES = [
   "ניתן לשלם במזומן, PAYBOX והעברה בנקאית.",
   "תקף עבור טיפולים בקליניקה בהוד השרון ובתל אביב.",
 ];
+
+// "What happens in the first session": a first draft in Or's voice, to be refined with her.
+// The "what to wear", "after the treatment" and "what I do not do" rows were removed at the owner's request.
+// NOT yet confirmed by Or: the remaining rows describe her way of working and must be checked.
+export const FIRST_SESSION = {
+  title: "בואו נדבר על הטיפול הראשון",
+  intro: "לא משנה אם הגעתם עם כאב, עם עומס או סתם עם גוף שצריך לעצור רגע. כל אחד מגיע ממקום אחר, וזה בסדר גמור.",
+  rows: [
+    {
+      label: "קודם מדברים",
+      text: "אני רוצה להבין איפה כואב.\nמה עובר עליכם בחיי היום יום?\nומה הגוף שלכם צריך עכשיו?",
+    },
+    {
+      label: "הטיפול עצמו",
+      text: "לחץ איטי ומדויק, שמגיע לשכבות העמוקות של השרירים. אם משהו חזק מדי או לא נעים, תגידו לי ואשנה. זה הגוף שלכם.",
+    },
+    {
+      label: "בכמה זמן",
+      text: "50 דקות או 90 דקות\nאו תהליך של טיפולים כדי להכניס לשגרה שלכם גם את עצמכם",
+    },
+  ],
+};

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: "אור מרום | עיסוי רפואי Deep Tissue בהוד השרון",
   description:
-    "אור מרום, מעסה רפואית בטכניקת Deep Tissue. מקבלת בהוד השרון ובתל אביב. קביעת תור ביומן אונליין.",
+    "אור מרום, מעסה רפואית בטכניקת Deep Tissue. מקבלת בהוד השרון ובתל אביב. קביעת תור בוואטסאפ.",
   openGraph: {
     title: "אור מרום | עיסוי רפואי Deep Tissue",
     description: "הגוף שלכם יודה לכם. עיסוי רפואי בטכניקת Deep Tissue בהוד השרון.",
@@ -30,8 +30,9 @@ export const metadata: Metadata = {
     siteName: "אור מרום",
     locale: "he_IL",
     type: "website",
-    images: [{ url: "/images/poster-1.jpg", width: 720, height: 600, alt: "אור מרום בעבודה" }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "אור מרום, עיסוי רפואי" }],
   },
+  twitter: { card: "summary_large_image", images: ["/images/og.jpg"] },
 };
 
 export const viewport: Viewport = {
