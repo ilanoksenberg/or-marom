@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   // Static export so the site can be hosted anywhere (GitHub Pages, Netlify, Vercel).
   output: "export",
   images: { unoptimized: true },
-  basePath: process.env.NODE_ENV === "production" ? "/or-marom" : "",
+  basePath:
+    process.env.NEXT_PUBLIC_CUSTOM_DOMAIN === "1" ? "" : process.env.NODE_ENV === "production" ? "/or-marom" : "",
 };
 
 export default nextConfig;

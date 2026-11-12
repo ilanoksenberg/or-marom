@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "./asset";
 
 const frank = Frank_Ruhl_Libre({
   subsets: ["hebrew", "latin"],
@@ -16,7 +17,7 @@ const assistant = Assistant({
   display: "swap",
 });
 
-const SITE = "https://ilanoksenberg.github.io/or-marom";
+const SITE = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
