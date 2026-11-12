@@ -73,7 +73,7 @@ export default function Home() {
           <div className="absolute inset-x-0 top-0 h-[68svh] md:inset-0 md:h-auto">
             <BackdropVideo
               src={asset("/videos/bg-1.mp4")}
-              poster={asset("/images/poster-1.jpg")}
+              poster={asset("/images/poster-1.webp")}
               className="settle h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-transparent md:via-bg/55 md:to-bg/5" />
@@ -230,7 +230,8 @@ export default function Home() {
           <div className="absolute inset-0">
             <BackdropVideo
               src={asset("/videos/bg-2.mp4")}
-              poster={asset("/images/poster-2.jpg")}
+              poster={asset("/images/poster-2.webp")}
+              lazy
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-bg/48" />

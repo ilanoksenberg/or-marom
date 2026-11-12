@@ -9,10 +9,10 @@ export function Logo({ className = "h-12", tagline = false }: { className?: stri
   return (
     <span className="inline-flex flex-col items-center">
       <Image
-        src={asset("/images/logo-color-notag.png")}
+        src={asset("/images/logo-color-notag.webp")}
         alt="אור מרום"
-        width={664}
-        height={480}
+        width={360}
+        height={260}
         priority
         className={`w-auto ${className}`}
       />

@@ -26,9 +26,9 @@ export const CREDENTIAL = "מוסמכת עיסוי רפואי (רקמות עמו
 
 // Photos of Or, supplied by the site owner. The clinic photo comes from Or's Instagram.
 export const IMAGES = {
-  clinic: asset("/images/clinic.jpg"),
-  hands: asset("/images/or-hands.jpg"),
-  smile: asset("/images/or-smile.jpg"),
+  clinic: asset("/images/clinic.webp"),
+  hands: asset("/images/or-hands.webp"),
+  smile: asset("/images/or-smile.webp"),
 };
 
 // Optional looping background video for the hero, for example "/videos/hero.mp4".
@@ -46,19 +46,19 @@ export const THINKING = ["אנרגיות חיוביות בלבד.", "אהבה ה
 export const TESTIMONIALS_INTRO = "המטופלים שלי הכי טובים שיש, ואני זוכה בפיס עם כל אחד ואחד מהם.";
 export const REVIEW_SHOTS = [
   {
-    src: asset("/images/review-1.jpg"),
+    src: asset("/images/review-1.webp"),
     w: 616,
     h: 489,
     alt: "הודעה שאור קיבלה: אור יקרה! מהחוויה שלי, הטיפול אצלך הוא הרבה מעבר לעיסוי. את יודעת להקשיב, להרגיש, ולתת תחושת ביטחון אמיתית. יצאתי ממך לא רק יותר משוחרר פיזית, אלא גם הרבה יותר רגוע. יש לך מגע מדויק ורגיש, אבל מה שבאמת מיוחד זה האנרגיה שלך, את גורמת למי שמגיע אלייך להרגיש שמי שמטפלת בה באמת מרגישה אותה.",
   },
   {
-    src: asset("/images/review-2.jpg"),
+    src: asset("/images/review-2.webp"),
     w: 616,
     h: 353,
     alt: "הודעה שאור קיבלה: אין מילים להסביר ולתאר את החוויה, מעבר לזה שאחרי פעם אחת שבאתי אלייך כל המשפחה שלי באה אלייך. את מדויקת ונעימה וקשובה שזה הכי חשוב. אין כמוך, באמת הכי מומלצת בעולם.",
   },
   {
-    src: asset("/images/review-3.jpg"),
+    src: asset("/images/review-3.webp"),
     w: 616,
     h: 325,
     alt: "הודעה שאור קיבלה: זכיתי להכיר אותך! תודה על עיסוי מושלם! יש לך ידיים זהב ומגע קסם! בכללי את עצמך נסיכה מדהימה ונהנתי מכל שנייה ושנייה. תודה לך.",
