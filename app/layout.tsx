@@ -1,19 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Frank_Ruhl_Libre, Assistant } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "./asset";
 
-const frank = Frank_Ruhl_Libre({
+// Open Sans, the typeface of Or's price sheet. Variable weight and width axes.
+const openSans = Open_Sans({
   subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-frank",
-  display: "swap",
-});
-
-const assistant = Assistant({
-  subsets: ["hebrew", "latin"],
-  weight: ["400", "600"],
-  variable: "--font-assistant",
+  axes: ["wdth"],
+  variable: "--font-open",
   display: "swap",
 });
 
@@ -44,7 +38,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${frank.variable} ${assistant.variable}`}>
+    <html lang="he" dir="rtl" className={openSans.variable}>
       <body>{children}</body>
     </html>
   );

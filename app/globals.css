@@ -10,8 +10,8 @@
   --color-sage: #6d7b5f;
   --color-sage-deep: #4d5a41;
   --color-tan: #b98f64;
-  --font-display: var(--font-frank), "Times New Roman", serif;
-  --font-body: var(--font-assistant), system-ui, sans-serif;
+  --font-display: var(--font-open), system-ui, sans-serif;
+  --font-body: var(--font-open), system-ui, sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -23,6 +23,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-stretch: 88%;
   font-size: 1.125rem;
   line-height: 1.7;
   color: var(--color-ink);
@@ -31,11 +32,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, blockquote {
+h1, h2, h3, h4, blockquote {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
+  font-stretch: 85%;
   text-wrap: balance;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 p { text-wrap: pretty; }
@@ -48,6 +50,8 @@ p { text-wrap: pretty; }
   outline-offset: 3px;
   border-radius: 6px;
 }
+
+blockquote { font-weight: 600; }
 
 /* One soft, blurred copy of the hero photograph behind the whole page, so the scenes share one light. */
 .ambient {

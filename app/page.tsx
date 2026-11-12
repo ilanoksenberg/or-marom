@@ -80,7 +80,7 @@ export default function Home() {
             <div className="absolute inset-0 hidden bg-gradient-to-l from-bg via-bg/75 to-transparent md:block" />
           </div>
           <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 pt-40 md:px-10 md:pb-24">
-            <h1 className="rise rise-1 max-w-[11ch] text-[clamp(3.4rem,12.5vw,7.5rem)] font-normal leading-[1]">
+            <h1 className="rise rise-1 max-w-[11ch] text-[clamp(3.4rem,12.5vw,7.5rem)] leading-[1]">
               הגוף שלכם יודה לכם
             </h1>
             <p className="rise rise-2 mt-6 max-w-[30ch] text-lg text-ink/80 md:mt-8 md:text-2xl">
@@ -169,7 +169,7 @@ export default function Home() {
                 {FIRST_SESSION.rows.map((r, i) => (
                   <Reveal key={r.label} delay={i * 0.05}>
                     <div className="grid gap-1 border-b border-line py-6 md:grid-cols-[0.45fr_1fr] md:gap-8 md:py-7">
-                      <dt className="font-display text-2xl md:text-3xl">{r.label}</dt>
+                      <dt className="font-display font-semibold text-2xl md:text-3xl">{r.label}</dt>
                       <dd className="whitespace-pre-line text-lg text-muted md:text-xl">{r.text}</dd>
                     </div>
                   </Reveal>
@@ -192,7 +192,7 @@ export default function Home() {
                 {SINGLE_SESSIONS.map((t) => (
                   <div key={t.duration} className="flex items-baseline justify-between gap-6 border-b border-line py-5">
                     <dt className="text-lg md:text-xl">{t.duration}</dt>
-                    <dd className="font-display text-3xl tabular-nums md:text-4xl">{t.price} ₪</dd>
+                    <dd className="font-display font-semibold text-3xl tabular-nums md:text-4xl">{t.price} ₪</dd>
                   </div>
                 ))}
               </dl>
@@ -208,13 +208,13 @@ export default function Home() {
                   <Reveal key={p.name} delay={i * 0.08}>
                     <div className="grid gap-4 border-b border-line py-8 md:grid-cols-[1.3fr_0.7fr] md:gap-10">
                       <div>
-                        <h4 className="font-display text-2xl md:text-3xl">{p.name}</h4>
+                        <h4 className="font-display font-semibold text-2xl md:text-3xl">{p.name}</h4>
                         <p className="mt-3 text-lg">{p.about}</p>
                         <p className="mt-1 text-base text-muted">{p.validity}</p>
                       </div>
                       <div className="md:text-end">
                         <p className="text-base text-muted">{p.count}</p>
-                        <p className="font-display text-4xl tabular-nums md:text-5xl">{p.total} ₪</p>
+                        <p className="font-display font-semibold text-4xl tabular-nums md:text-5xl">{p.total} ₪</p>
                         <p className="mt-1 text-base text-muted tabular-nums">{p.perSession} ₪ לטיפול</p>
                       </div>
                     </div>
@@ -316,7 +316,7 @@ export default function Home() {
           <Reveal delay={0.08}>
             <dl className="mt-10 border-t border-line md:mt-14">
               <div className="grid gap-3 border-b border-line py-8 md:grid-cols-[1fr_1.4fr] md:items-baseline md:py-10">
-                <dt className="font-display text-4xl font-light md:text-6xl">הוד השרון</dt>
+                <dt className="font-display font-semibold text-4xl md:text-6xl">הוד השרון</dt>
                 <dd className="space-y-1 text-lg text-muted md:text-xl">
                   {ADDRESSES.map((a) => (
                     <AddressLine key={a} address={a} />
@@ -324,7 +324,7 @@ export default function Home() {
                 </dd>
               </div>
               <div className="grid gap-3 border-b border-line py-8 md:grid-cols-[1fr_1.4fr] md:items-baseline md:py-10">
-                <dt className="font-display text-4xl font-light md:text-6xl">תל אביב</dt>
+                <dt className="font-display font-semibold text-4xl md:text-6xl">תל אביב</dt>
                 <dd className="space-y-1 text-lg text-muted md:text-xl">
                   {TEL_AVIV_ADDRESSES.map((a) => (
                     <AddressLine key={a} address={a} />
