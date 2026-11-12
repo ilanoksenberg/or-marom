@@ -15,7 +15,6 @@ import {
   PHONE_DISPLAY,
   PACKAGES,
   PHONE_TEL,
-  PRICE_NOTES,
   SINGLE_SESSIONS,
   STATEMENT,
   TEL_AVIV_ADDRESSES,
@@ -222,13 +221,6 @@ export default function Home() {
                   </Reveal>
                 ))}
               </div>
-              <Reveal>
-                <ul className="mt-8 space-y-1 text-base text-muted">
-                  {PRICE_NOTES.map((n) => (
-                    <li key={n}>{n}</li>
-                  ))}
-                </ul>
-              </Reveal>
             </div>
           </div>
         </section>

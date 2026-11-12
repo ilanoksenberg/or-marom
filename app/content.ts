@@ -98,11 +98,6 @@ export const PACKAGES = [
   },
 ];
 
-export const PRICE_NOTES = [
-  "ניתן לשלם במזומן, PAYBOX והעברה בנקאית.",
-  "תקף עבור טיפולים בקליניקה בהוד השרון ובתל אביב.",
-];
-
 // "What happens in the first session": a first draft in Or's voice, to be refined with her.
 // The "what to wear", "after the treatment" and "what I do not do" rows were removed at the owner's request.
 // NOT yet confirmed by Or: the remaining rows describe her way of working and must be checked.
